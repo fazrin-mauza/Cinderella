@@ -1,58 +1,64 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cinderella</title>
-	<script src="vara.min.js"></script>
-
-	<style>
-		* {
-			padding: 0;
-			margin: 0;
-
-		}
-
-		body {
-			background: url(bg-cinderella.jpeg);
-			/* background: linear-gradient(0.25turn, rgb(40, 94, 85), red); */
-			background-size: cover;
-			background-position: center;
-			height: 100vh;
-			overflow: hidden;
-			color: black;
-		}
-
-		#container {
-			width: 80%;
-			margin: 20px auto;
-			min-height: 650px;
-			margin-top: 150px;
-			color: black;
-		}
-
-		@media screen and (max-width: 400px) {
-			#container {
-				width: 100%;
-				margin: 50% auto;
-				min-height: 800px;
-			}
-
-		}
-
-		.wrapper {
-			position: fixed;
-		}
-
-		.box div {
-			position: fixed;
-			width: 65px;
-			height: 65px;
-			background-color: transparent;
-			border-radius: 30px;
-			border: 6px solid yellow;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinderella</title>
+    <script src="vara.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url(bg-cinderella.jpeg);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            overflow: hidden;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 80%;
+            margin: 20px auto;
+            min-height: 650px;
+            margin-top: 150px;
+            color: black;
+            text-align: center;
+        }
+        @media screen and (max-width: 768px) {
+            #container {
+                width: 90%;
+                margin-top: 100px;
+            }
+        }
+        @media screen and (max-width: 400px) {
+            #container {
+                width: 100%;
+                margin-top: 50px;
+            }
+        }
+        .wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+        }
+        .box div {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            background-color: transparent;
+            border-radius: 30px;
+            border: 6px solid yellow;
+        }
 
 		.box div:nth-child(1) {
 			top: 12%;
@@ -148,15 +154,15 @@
 		</div>
 	</div>
 	<script>
-		var fontSize = 40;
-		if (window.screen.width > 700)
-			fontSize = 55;
-		else if (window.screen.width > 1200)
-			fontSize = 80;
-		var vara = new Vara(
-			"#container",
-			"https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json",
-			[
+        var fontSize = 40;
+        if (window.screen.width > 700)
+            fontSize = 55;
+        else if (window.screen.width > 1200)
+            fontSize = 80;
+        var vara = new Vara(
+            "#container",
+            "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json",
+            [
 				{
 					text: "Dera dan siksa",
 					y: 150,
@@ -245,31 +251,26 @@
 			],
 
 			{
-				strokeWidth: 2,
-				color: "#fff",
-				fontSize: fontSize,
-				textAlign: "center"
-			}
-		);
-		vara.ready(function () {
-			var erase = true;
-			vara.animationEnd(function (i, o) {
-				if (i == "no_erase") erase = false;
-				if (erase) {
-					o.container.style.transition =
-						"opacity 1s 1s";
-					o.container.style.opacity = 0;
-				}
-			});
-		});
-
-	</script>
-
-	<div class="musik" style="text-align: center;">
-		<audio controls autoplay>
-			<source src="Cinderella.mp3" type="audio/mp3">
-		</audio>
-	</div>
-	
+			 strokeWidth: 2,
+                color: "#fff",
+                fontSize: fontSize,
+                textAlign: "center"
+            }
+        );
+        vara.ready(function () {
+            var erase = true;
+            vara.animationEnd(function (i, o) {
+                if (i == "no_erase") erase = false;
+                if (erase) {
+                    o.container.style.transition = "opacity 1s 1s";
+                    o.container.style.opacity = 0;
+                }
+            });
+        });
+    </script>
+    <audio controls autoplay style="position: fixed; bottom: 20px; right: 20px;">
+        <source src="Cinderella.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>
